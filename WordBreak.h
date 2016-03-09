@@ -17,6 +17,13 @@
 
 class Solution {
 public:
+    /*
+    dp[i]：S[0:i-1]是否能被break。例如dp[1]表示s[0]是否能被break。
+    dp[0] = true
+    dp[i] = true if and only if:
+    1. 存在一个i - 1 >= k >= 0，使s[k : i - 1]存在于dict中。
+    2. s[0: k - 1]可以被break，即dp[k] = true。
+    */
     bool wordBreak(string s, unordered_set<string> &dict) {
         bool canBreak[s.size() + 1];
         memset(canBreak, false, sizeof(canBreak));
