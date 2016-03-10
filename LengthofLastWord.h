@@ -14,10 +14,15 @@ return 5.
 class Solution {
 public:
     int lengthOfLastWord(string s) {
-        if (s.empty()) return 0;
-        int i = s.length() - 1, count = 0;
-        while (i >= 0 && s[i] == ' ') i--;
-        while (i >= 0 && s[i] != ' ') i--, count++;
+        int size = s.length();
+        int count = 0, i = size - 1;
+        while (i >= 0 && s[i] == ' ') {
+            i--;
+        }
+        
+        while (i >= 0 && s[i] != ' ') {
+            i--; count++;
+        }
         return count;
     }
 };
